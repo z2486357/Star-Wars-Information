@@ -1,0 +1,62 @@
+<div *ngIf="characterChoose">
+  <p class="description">name: {{ characterChoose.name }}</p>
+  <p class="description">height: {{ characterChoose.height }}</p>
+  <p class="description">mass: {{ characterChoose.mass }}</p>
+  <p class="description">hair color: {{ characterChoose.hair_color }}</p>
+  <p class="description">skin color: {{ characterChoose.skin_color }}</p>
+  <p class="description">eye color: {{ characterChoose.eye_color }}</p>
+  <p class="description">birth year: {{ characterChoose.birth_year }}</p>
+  <p class="description">gender: {{ characterChoose.gender }}</p>
+  <p
+    class="description"
+    style="cursor: pointer"
+    *ngIf="homeworld"
+    (click)="homeworldDisplay(homeworld)"
+  >
+    homeworld: {{ homeworld.name }}
+  </p>
+  <div *ngIf="films" class="description">
+    <p class="descriptionTopic">Film</p>
+    <hr>
+    <p
+      class="descriptionDetail"
+      *ngFor="let film of films"
+      (click)="filmDisplay(film)"
+    >
+      {{ film.title }}
+    </p>
+  </div>
+  <div *ngIf="species" class="description">
+    <p class="descriptionTopic">Species</p>
+    <hr>
+    <p
+      class="descriptionDetail"
+      *ngFor="let spy of species"
+      (click)="speciesDisplay(spy)"
+    >
+      {{ spy.name }}
+    </p>
+  </div>
+  <div *ngIf="vehicles" class="description">
+    <p class="descriptionTopic">Vehicles</p>
+    <hr>
+    <p
+      class="descriptionDetail"
+      *ngFor="let vehicle of vehicles"
+      (click)="vehicleDisplay(vehicle)"
+    >
+      {{ vehicle.name }}
+    </p>
+  </div>
+  <div *ngIf="starships" class="description">
+    <p class="descriptionTopic">Starships</p>
+    <hr>
+    <p
+      class="descriptionDetail"
+      *ngFor="let starship of starships"
+      (click)="starshipDisplay(starship)"
+    >
+      {{ starship.name }}
+    </p>
+  </div>
+</div>

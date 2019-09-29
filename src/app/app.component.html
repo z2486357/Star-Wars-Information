@@ -14,27 +14,31 @@
 </select>
 
 <hr />
+<app-character
+  *ngIf="selected == 'character'"
+  (changeDisplay)="changeDisplay($event)"
+  [characterChoose]="characterChoose"
+  [homeworld]="homeworld"
+  [films]="films"
+  [species]="species"
+  [vehicles]="vehicles"
+  [starships]="starships"
+></app-character>
 
-<div *ngIf="characterChoose">
-  <p class="description">name: {{ characterChoose.name }}</p>
-  <p class="description">height: {{ characterChoose.height }}</p>
-  <p class="description">mass: {{ characterChoose.mass }}</p>
-  <p class="description">hair color: {{ characterChoose.hair_color }}</p>
-  <p class="description">skin color: {{ characterChoose.skin_color }}</p>
-  <p class="description">eye color: {{ characterChoose.eye_color }}</p>
-  <p class="description">birth year: {{ characterChoose.birth_year }}</p>
-  <p class="description">gender: {{ characterChoose.gender }}</p>
-  <p class="description" *ngIf="homeworld">homeworld: {{ homeworld.name }}</p>
-  <div *ngIf="films">
-    <p class="description" *ngFor="let film of films">Film: {{ film.title }}</p>
-  </div>
-  <div *ngIf="species">
-    <p class="description" *ngFor="let spy of species">Species: {{ spy.name }}</p>
-  </div>
-  <div *ngIf="vehicles">
-    <p class="description" *ngFor="let vehicle of vehicles">Vehicles: {{ vehicle.name }}</p>
-  </div>
-  <div *ngIf="starships">
-    <p class="description" *ngFor="let starship of starships">Starships: {{ starship.name }}</p>
-  </div>
-</div>
+<app-homeworld
+  *ngIf="selected == 'homeworld'"
+  [homeworldChoose]="homeworldChoose"
+></app-homeworld>
+<app-films *ngIf="selected == 'film'" [filmChoose]="filmChoose"></app-films>
+<app-species
+  *ngIf="selected == 'species'"
+  [speciesChoose]="speciesChoose"
+></app-species>
+<app-vehicles
+  *ngIf="selected == 'vehicle'"
+  [vehicleChoose]="vehicleChoose"
+></app-vehicles>
+<app-starships
+  *ngIf="selected == 'starship'"
+  [starshipChoose]="starshipChoose"
+></app-starships>

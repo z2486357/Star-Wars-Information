@@ -1,0 +1,27 @@
+<div *ngIf="filmChoose">
+  <p class="description">Title: {{ filmChoose.title }}</p>
+  <p class="description">Episode_id: {{ filmChoose.episode_id }}</p>
+  <p class="description">Opening_crawl: {{ filmChoose.opening_crawl }}</p>
+  <p class="description">Director: {{ filmChoose.director }}</p>
+  <p class="description">Release_date: {{ filmChoose.release_date }}</p>
+  <div *ngIf="characters">
+    <hr>
+    <p class="description" *ngFor="let character of characters">Characters: {{ character.name }}</p>
+  </div>
+  <div *ngIf="planets">
+    <hr>
+    <p class="description" *ngFor="let planet of planets">Planets: {{ planet.name }}</p>
+  </div>
+  <div *ngIf="starships">
+    <hr>
+    <p class="description" *ngFor="let starship of starships">Starships: {{ starship.name }}</p>
+  </div>
+  <div *ngIf="vehicles">
+    <hr>
+    <p class="description" *ngFor="let vehicle of vehicles">Vehicles: {{ vehicle.name }}</p>
+  </div>
+  <div *ngIf="species">
+    <hr>
+    <p class="description" *ngFor="let spe of species">Species: {{ spe.name }}</p>
+  </div>
+</div>

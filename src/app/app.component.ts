@@ -10,12 +10,18 @@ import { Subject } from 'rxjs';
 export class AppComponent implements OnInit {
 
   characterList: any[];
+  homeworld: any;
+  films: any[];
+  species: any[];
+  vehicles: any[];
+  starships: any[];
   characterChoose: any;
-  homeworld:any;
-  films:any[]=[];
-  species:any[]=[];
-  vehicles:any[]=[];
-  starships:any[]=[];
+  homeworldChoose: any;
+  filmChoose: any;
+  speciesChoose: any;
+  vehicleChoose: any;
+  starshipChoose: any;
+  selected: string = "";
   finishWait: Subject<string> = new Subject<string>();
 
   constructor(private dataService: DataService) { }
@@ -41,37 +47,57 @@ export class AppComponent implements OnInit {
     })
   }
 
-  changeCharacter(){
-    this.dataService.getHomeWorld(this.characterChoose.homeworld).subscribe((response)=>{
-      this.homeworld=response;
+  changeCharacter() {
+    this.dataService.getHomeWorld(this.characterChoose.homeworld).subscribe((response) => {
+      this.homeworld = response;
     });
 
-    this.films=[];
-    for(let film of this.characterChoose.films){
-      this.dataService.getFilms(film).subscribe((response)=>{
+    this.films = [];
+    for (let film of this.characterChoose.films) {
+      this.dataService.getFilms(film).subscribe((response) => {
         this.films.push(response);
       });
     }
 
-    this.species=[];
-    for(let spe of this.characterChoose.species){
-      this.dataService.getSpecies(spe).subscribe((response)=>{
+    this.species = [];
+    for (let spe of this.characterChoose.species) {
+      this.dataService.getSpecies(spe).subscribe((response) => {
         this.species.push(response);
       });
     }
 
-    this.vehicles=[];
-    for(let vehicle of this.characterChoose.vehicles){
-      this.dataService.getVehicles(vehicle).subscribe((response)=>{
+    this.vehicles = [];
+    for (let vehicle of this.characterChoose.vehicles) {
+      this.dataService.getVehicles(vehicle).subscribe((response) => {
         this.vehicles.push(response);
       });
     }
 
-    this.starships=[];
-    for(let starship of this.characterChoose.starships){
-      this.dataService.getStarships(starship).subscribe((response)=>{
+    this.starships = [];
+    for (let starship of this.characterChoose.starships) {
+      this.dataService.getStarships(starship).subscribe((response) => {
         this.starships.push(response);
       });
+    }
+    this.selected = "character";
+  }
+
+  changeDisplay(nextDisplay: { display: string, detail: string }) {
+    this.selected = nextDisplay.display;
+    if (this.selected == "homeworld") {
+      this.homeworldChoose = nextDisplay.detail;
+    }
+    if (this.selected == "film") {
+      this.filmChoose = nextDisplay.detail;
+    }
+    if (this.selected == "species") {
+      this.speciesChoose = nextDisplay.detail;
+    }
+    if (this.selected == "vehicle") {
+      this.vehicleChoose = nextDisplay.detail;
+    }
+    if (this.selected == "starship") {
+      this.starshipChoose = nextDisplay.detail;
     }
   }
 }

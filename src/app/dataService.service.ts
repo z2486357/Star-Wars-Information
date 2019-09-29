@@ -15,6 +15,10 @@ export class DataService {
     return this.http.get<{ count: number, next: string, previous: string, results: any[] }>(url);
   }
 
+  getCharacter(url:string){
+    return this.http.get(url);
+  }
+
   getHomeWorld(url:string){
     return this.http.get(url);
   }
