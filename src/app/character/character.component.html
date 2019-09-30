@@ -1,5 +1,6 @@
 <div *ngIf="characterChoose">
-  <p class="description">name: {{ characterChoose.name }}</p>
+  <p class="name">{{ characterChoose.name }}</p>
+  <p class="description" *ngIf="characterChoose.description">Description: {{ characterChoose.description }}</p>
   <p class="description">height: {{ characterChoose.height }}</p>
   <p class="description">mass: {{ characterChoose.mass }}</p>
   <p class="description">hair color: {{ characterChoose.hair_color }}</p>
@@ -9,54 +10,68 @@
   <p class="description">gender: {{ characterChoose.gender }}</p>
   <p
     class="description"
-    style="cursor: pointer"
     *ngIf="homeworld"
-    (click)="homeworldDisplay(homeworld)"
   >
     homeworld: {{ homeworld.name }}
   </p>
-  <div *ngIf="films" class="description">
-    <p class="descriptionTopic">Film</p>
-    <hr>
+  <div *ngIf="species && species.length != 0" class="description">
+    <p style="display: inline">Species of the character:</p>
     <p
-      class="descriptionDetail"
-      *ngFor="let film of films"
-      (click)="filmDisplay(film)"
-    >
-      {{ film.title }}
-    </p>
-  </div>
-  <div *ngIf="species" class="description">
-    <p class="descriptionTopic">Species</p>
-    <hr>
-    <p
-      class="descriptionDetail"
-      *ngFor="let spy of species"
-      (click)="speciesDisplay(spy)"
+      style="display: inline"
+      *ngFor="let spy of species; let i = index"
     >
       {{ spy.name }}
+      <span *ngIf="i != species.length - 1">,</span>
     </p>
   </div>
-  <div *ngIf="vehicles" class="description">
-    <p class="descriptionTopic">Vehicles</p>
-    <hr>
+  <div *ngIf="vehicles && vehicles.length != 0" class="description">
+    <p style="display: inline">Vehicles the character used:</p>
     <p
-      class="descriptionDetail"
-      *ngFor="let vehicle of vehicles"
-      (click)="vehicleDisplay(vehicle)"
+      style="display: inline"
+      *ngFor="let vehicle of vehicles; let i = index"
     >
       {{ vehicle.name }}
+      <span *ngIf="i != vehicles.length - 1">,</span>
     </p>
   </div>
-  <div *ngIf="starships" class="description">
-    <p class="descriptionTopic">Starships</p>
-    <hr>
+  <div *ngIf="starships && starships.length != 0" class="description">
+    <p style="display: inline">Starships the character used:</p>
     <p
-      class="descriptionDetail"
-      *ngFor="let starship of starships"
-      (click)="starshipDisplay(starship)"
+      style="display: inline"
+      *ngFor="let starship of starships; let i = index"
     >
       {{ starship.name }}
+      <span *ngIf="i != starships.length - 1">,</span>
     </p>
+  </div>
+  <hr />
+  <div *ngIf="films && films.length != 0" class="description">
+    <p class="descriptionTopic">The film that the character involved</p>
+    <hr />
+    <table>
+      <tr>
+        <td class="tableTopic">Title</td>
+        <td></td>
+        <td class="tableTopic">Episode</td>
+        <td></td>
+        <td class="tableTopic">Director</td>
+        <td></td>
+        <td class="tableTopic">Producer</td>
+        <td></td>
+        <td class="tableTopic">Release Date</td>
+      </tr>
+
+      <tr *ngFor="let film of films; let i = index" (click)="filmDisplay(film)" style="cursor: pointer">
+        <td [ngClass]="i%2==1?'evenRow':'oddRow'">{{ film.title }}</td>
+        <td></td>
+        <td [ngClass]="i%2==1?'evenRow':'oddRow'">{{ film.episode_id }}</td>
+        <td></td>
+        <td [ngClass]="i%2==1?'evenRow':'oddRow'">{{ film.director }}</td>
+        <td></td>
+        <td [ngClass]="i%2==1?'evenRow':'oddRow'">{{ film.producer }}</td>
+        <td></td>
+        <td [ngClass]="i%2==1?'evenRow':'oddRow'">{{ film.release_date }}</td>
+      </tr>
+    </table>
   </div>
 </div>

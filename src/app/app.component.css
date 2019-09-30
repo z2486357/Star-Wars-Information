@@ -1,21 +1,56 @@
-.description{
-  width: 90%;
-  border: 1px solid;
-  margin: 1% 5%;
-  padding:1%
-}
-.descriptionTopic{
-  margin: 0;
-  padding: 0
+.selectBar {
+  margin: 1% 3%;
 }
 
-.descriptionDetail{
+.description {
+  width: 90%;
+  margin: 1% 3%;
+}
+.descriptionTopic {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+.descriptionDetail {
   padding-left: 1%;
   cursor: pointer;
 }
 
-hr{
+hr {
   margin: 0;
   margin-top: 1%;
   padding: 0;
+}
+
+.tableTopic {
+  border-bottom: 1px solid;
+}
+
+.evenRow {
+  background-color: rgba(130, 130, 130);
+  color: white;
+}
+
+.oddRow {
+  background-color: rgb(146, 190, 231);
+  color: black;
+}
+
+.name {
+  width: 90%;
+  margin: 1% 2%;
+  font-weight: bold;
+  font-size: 5vw;
+}
+
+.errorMessage {
+  width: 80%;
+  margin: 5% auto;
+  border-radius: 10px;
+  background-color: rgb(240, 145, 145);
+  text-align: center;
+}
+.errorMessage p {
+  padding: 5%;
 }
