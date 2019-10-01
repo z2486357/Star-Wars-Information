@@ -1,46 +1,53 @@
 <div *ngIf="filmChoose">
-  <p class="description">Title: {{ filmChoose.title }}</p>
-  <p class="description">Episode_id: {{ filmChoose.episode_id }}</p>
-  <p class="description">Opening_crawl: {{ filmChoose.opening_crawl }}</p>
-  <p class="description">Director: {{ filmChoose.director }}</p>
-  <p class="description">Release_date: {{ filmChoose.release_date }}</p>
+  <p class="name" style="display: inline">{{ filmChoose.title }}</p>
+  <button class="backButton" (click)="backToCharacter()">Back</button>
+  <p class="description border">Episode_id: {{ filmChoose.episode_id }}</p>
+  <p class="description border">
+    Opening_crawl:<br />
+    {{ filmChoose.opening_crawl }}
+  </p>
+  <p class="description border">Director: {{ filmChoose.director }}</p>
+  <p class="description border">Release_date: {{ filmChoose.release_date }}</p>
 
-  <div *ngIf="characters && characters.length != 0" class="description">
-    <p class="descriptionTopic">Characters in the film</p>
-    <hr />
-    <p class="descriptionDetail" *ngFor="let character of characters">
+  <div *ngIf="characters && characters.length != 0" class="description border">
+    <p style="display: inline">Characters in the film</p>
+    <p style="display: inline" *ngFor="let character of characters">
       {{ character.name }}
+      <span *ngIf="i != characters.length - 1">,</span>
     </p>
   </div>
 
-  <div *ngIf="planets && planets.length != 0" class="description">
-    <p class="descriptionTopic">Planets in the film</p>
-    <hr />
-    <p class="descriptionDetail" *ngFor="let planet of planets">
+  <div *ngIf="planets && planets.length != 0" class="description border">
+    <p style="display: inline">Planets in the film:</p>
+    <p style="display: inline" *ngFor="let planet of planets; let i = index">
       {{ planet.name }}
+      <span *ngIf="i != planets.length - 1">,</span>
     </p>
   </div>
 
-  <div *ngIf="starships && starships.length != 0" class="description">
-    <p class="descriptionTopic">Starships in the film</p>
-    <hr />
-    <p class="descriptionDetail" *ngFor="let starship of starships">
+  <div *ngIf="starships && starships.length != 0" class="description border">
+    <p style="display: inline">Starships in the film:</p>
+    <p
+      style="display: inline"
+      *ngFor="let starship of starships; let i = index"
+    >
       {{ starship.name }}
+      <span *ngIf="i != starships.length - 1">,</span>
     </p>
   </div>
-  <div *ngIf="vehicles && vehicles.length != 0" class="description">
-    <p class="descriptionTopic">Vehicles in the film</p>
-    <hr />
-    <p class="descriptionDetail" *ngFor="let vehicle of vehicles">
+  <div *ngIf="vehicles && vehicles.length != 0" class="description border">
+    <p style="display: inline">Vehicles in the film:</p>
+    <p style="display: inline" *ngFor="let vehicle of vehicles; let i = index">
       {{ vehicle.name }}
+      <span *ngIf="i != vehicles.length - 1">,</span>
     </p>
   </div>
 
-  <div *ngIf="species && species.length != 0" class="description">
-    <p class="descriptionTopic">Species in the film</p>
-    <hr />
-    <p class="descriptionDetail" *ngFor="let spy of species">
+  <div *ngIf="species && species.length != 0" class="description border">
+    <p style="display: inline">Species in the film:</p>
+    <p style="display: inline" *ngFor="let spy of species; let i = index">
       {{ spy.name }}
+      <span *ngIf="i != species.length - 1">,</span>
     </p>
   </div>
 </div>

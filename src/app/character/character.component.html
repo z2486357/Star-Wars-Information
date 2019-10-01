@@ -1,40 +1,31 @@
 <div *ngIf="characterChoose">
   <p class="name">{{ characterChoose.name }}</p>
-  <p class="description" *ngIf="characterChoose.description">Description: {{ characterChoose.description }}</p>
-  <p class="description">height: {{ characterChoose.height }}</p>
-  <p class="description">mass: {{ characterChoose.mass }}</p>
-  <p class="description">hair color: {{ characterChoose.hair_color }}</p>
-  <p class="description">skin color: {{ characterChoose.skin_color }}</p>
-  <p class="description">eye color: {{ characterChoose.eye_color }}</p>
-  <p class="description">birth year: {{ characterChoose.birth_year }}</p>
-  <p class="description">gender: {{ characterChoose.gender }}</p>
-  <p
-    class="description"
-    *ngIf="homeworld"
-  >
-    homeworld: {{ homeworld.name }}
+  <p class="description border" *ngIf="characterChoose.description">
+    Description: {{ characterChoose.description }}
   </p>
-  <div *ngIf="species && species.length != 0" class="description">
+  <p class="description border">height: {{ characterChoose.height }}</p>
+  <p class="description border">mass: {{ characterChoose.mass }}</p>
+  <p class="description border">hair color: {{ characterChoose.hair_color }}</p>
+  <p class="description border">skin color: {{ characterChoose.skin_color }}</p>
+  <p class="description border">eye color: {{ characterChoose.eye_color }}</p>
+  <p class="description border">birth year: {{ characterChoose.birth_year }}</p>
+  <p class="description border">gender: {{ characterChoose.gender }}</p>
+  <p class="description border" *ngIf="homeworld">homeworld: {{ homeworld.name }}</p>
+  <div *ngIf="species && species.length != 0" class="description border">
     <p style="display: inline">Species of the character:</p>
-    <p
-      style="display: inline"
-      *ngFor="let spy of species; let i = index"
-    >
+    <p style="display: inline" *ngFor="let spy of species; let i = index">
       {{ spy.name }}
       <span *ngIf="i != species.length - 1">,</span>
     </p>
   </div>
-  <div *ngIf="vehicles && vehicles.length != 0" class="description">
+  <div *ngIf="vehicles && vehicles.length != 0" class="description border">
     <p style="display: inline">Vehicles the character used:</p>
-    <p
-      style="display: inline"
-      *ngFor="let vehicle of vehicles; let i = index"
-    >
+    <p style="display: inline" *ngFor="let vehicle of vehicles; let i = index">
       {{ vehicle.name }}
       <span *ngIf="i != vehicles.length - 1">,</span>
     </p>
   </div>
-  <div *ngIf="starships && starships.length != 0" class="description">
+  <div *ngIf="starships && starships.length != 0" class="description border">
     <p style="display: inline">Starships the character used:</p>
     <p
       style="display: inline"
@@ -48,7 +39,7 @@
   <div *ngIf="films && films.length != 0" class="description">
     <p class="descriptionTopic">The film that the character involved</p>
     <hr />
-    <table>
+    <table style="width: 100%">
       <tr>
         <td class="tableTopic">Title</td>
         <td></td>
@@ -61,16 +52,28 @@
         <td class="tableTopic">Release Date</td>
       </tr>
 
-      <tr *ngFor="let film of films; let i = index" (click)="filmDisplay(film)" style="cursor: pointer">
-        <td [ngClass]="i%2==1?'evenRow':'oddRow'">{{ film.title }}</td>
+      <tr
+        *ngFor="let film of films; let i = index"
+        (click)="filmDisplay(film)"
+        style="cursor: pointer"
+      >
+        <td [ngClass]="i % 2 == 1 ? 'evenRow' : 'oddRow'">{{ film.title }}</td>
         <td></td>
-        <td [ngClass]="i%2==1?'evenRow':'oddRow'">{{ film.episode_id }}</td>
+        <td [ngClass]="i % 2 == 1 ? 'evenRow' : 'oddRow'">
+          {{ film.episode_id }}
+        </td>
         <td></td>
-        <td [ngClass]="i%2==1?'evenRow':'oddRow'">{{ film.director }}</td>
+        <td [ngClass]="i % 2 == 1 ? 'evenRow' : 'oddRow'">
+          {{ film.director }}
+        </td>
         <td></td>
-        <td [ngClass]="i%2==1?'evenRow':'oddRow'">{{ film.producer }}</td>
+        <td [ngClass]="i % 2 == 1 ? 'evenRow' : 'oddRow'">
+          {{ film.producer }}
+        </td>
         <td></td>
-        <td [ngClass]="i%2==1?'evenRow':'oddRow'">{{ film.release_date }}</td>
+        <td [ngClass]="i % 2 == 1 ? 'evenRow' : 'oddRow'">
+          {{ film.release_date }}
+        </td>
       </tr>
     </table>
   </div>

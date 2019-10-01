@@ -33,11 +33,11 @@ export class AppComponent implements OnInit {
     this.finishWait.subscribe((nextUrl) => {
       this.loadAllCharacter(nextUrl);
     });
-    this.finishLast.subscribe(()=>{
-      this.characterList[1].description="I am the first character!!!!";
-      this.characterList[2].description="I have no idea who am I";
-      this.characterList[3].description="I did not very understand about star war";
-      this.characterList[4].description="I am the "+ "4th" + " character";
+    this.finishLast.subscribe(() => {
+      this.characterList[1].description = "I am the first character!!!!";
+      this.characterList[2].description = "I have no idea who am I";
+      this.characterList[3].description = "I did not very understand about star war";
+      this.characterList[4].description = "I am the " + "4th" + " character";
     });
   }
 
@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
       }
       if (response.next != null) {
         this.finishWait.next(response.next);
-      }else{
+      } else {
         this.finishLast.next();
       }
     })
@@ -67,9 +67,16 @@ export class AppComponent implements OnInit {
       });
 
       this.films = [];
+      let filmsCount = 0;
       for (let film of this.characterChoose.films) {
         this.dataService.getFilms(film).subscribe((response) => {
           this.films.push(response);
+          filmsCount++;
+          if (filmsCount == this.characterChoose.films.length) {
+            this.films = this.films.sort(function (a, b) {
+              return a.episode_id > b.episode_id ? 1 : a.episode_id < b.episode_id ? -1 : 0
+            })
+          }
         });
       }
 
@@ -104,20 +111,8 @@ export class AppComponent implements OnInit {
 
   changeDisplay(nextDisplay: { display: string, detail: string }) {
     this.selected = nextDisplay.display;
-    if (this.selected == "homeworld") {
-      this.homeworldChoose = nextDisplay.detail;
-    }
     if (this.selected == "film") {
       this.filmChoose = nextDisplay.detail;
-    }
-    if (this.selected == "species") {
-      this.speciesChoose = nextDisplay.detail;
-    }
-    if (this.selected == "vehicle") {
-      this.vehicleChoose = nextDisplay.detail;
-    }
-    if (this.selected == "starship") {
-      this.starshipChoose = nextDisplay.detail;
     }
   }
 }

@@ -1,18 +1,23 @@
-<select
-  class="selectBar"
-  name="characterList"
-  id="characterList"
-  [(ngModel)]="indexChoose"
-  (change)="changeCharacter()"
->
-  <option *ngFor="let character of characterList; let i = index" [ngValue]="i">
-    {{ character.name }}
-  </option>
-</select>
+<div class="selectBar">
+  <p class="description" style="display: inline">Character:</p>
+  <select
+    name="characterList"
+    id="characterList"
+    [(ngModel)]="indexChoose"
+    (change)="changeCharacter()"
+  >
+    <option
+      *ngFor="let character of characterList; let i = index"
+      [ngValue]="i"
+    >
+      {{ character.name }}
+    </option>
+  </select>
+</div>
 
 <hr />
-<div class="errorMessage"*ngIf="isError">
-    <p>Invalid Input. Please choose another character which is valid!</p>
+<div class="errorMessage" *ngIf="isError">
+  <p>Invalid Input. Please choose another character which is valid!</p>
 </div>
 
 <app-character
@@ -26,4 +31,4 @@
   [starships]="starships"
 ></app-character>
 
-<app-films *ngIf="selected == 'film'" [filmChoose]="filmChoose"></app-films>
+<app-films *ngIf="selected == 'film'" [filmChoose]="filmChoose" (changeDisplay)="changeDisplay($event)"></app-films>

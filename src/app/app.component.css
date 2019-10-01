@@ -54,3 +54,17 @@ hr {
 .errorMessage p {
   padding: 5%;
 }
+
+.border{
+  border: 1px solid rgba(130, 130, 130);
+  padding: 1%
+}
+
+.backButton{
+  display: inline;
+  background-color: white;
+  border: 1px solid rgb(100, 100, 100);
+  border-radius: 3px;
+  padding: 0.5% 1%;
+  cursor: pointer;
+}
