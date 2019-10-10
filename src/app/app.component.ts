@@ -65,7 +65,6 @@ export class AppComponent implements OnInit {
       this.dataService.getHomeWorld(this.characterChoose.homeworld).subscribe((response) => {
         this.homeworld = response;
       });
-
       this.films = [];
       let filmsCount = 0;
       for (let film of this.characterChoose.films) {
