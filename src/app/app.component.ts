@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
   finishLast: Subject<any> = new Subject<any>();
 
   constructor(private dataService: DataService) { }
+  
   ngOnInit() {
     this.loadAllCharacter(null);
     this.finishWait.subscribe((nextUrl) => {
