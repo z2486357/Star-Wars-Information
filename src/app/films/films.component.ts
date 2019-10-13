@@ -9,12 +9,12 @@ import { DataService } from '../dataService.service';
 export class FilmsComponent implements OnInit {
 
   @Input() filmChoose: any;
+  @Output() changeDisplay: EventEmitter<{ display: string, detail: string }> = new EventEmitter<{ display: string, detail: string }>();
   characters: any[];
   planets: any[];
   starships: any[];
   vehicles: any[];
   species: any[];
-  @Output() changeDisplay: EventEmitter<{ display: string, detail: string }> = new EventEmitter<{ display: string, detail: string }>();
 
   constructor(private dataService: DataService) { }
 
