@@ -21,6 +21,6 @@ export class CharacterComponent implements OnInit {
   }
 
   filmDisplay(film: any) {
-    this.changeDisplay.next({ display: "film", detail: film })
+    this.changeDisplay.next({ display: "film", detail: film });
   }
 }
