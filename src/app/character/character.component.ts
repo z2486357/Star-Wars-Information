@@ -14,7 +14,6 @@ export class CharacterComponent implements OnInit {
   @Input() starships: any[];
   @Output() changeDisplay: EventEmitter<{ display: string, detail: string }> = new EventEmitter<{ display: string, detail: string }>();
 
-
   constructor() { }
 
   ngOnInit() {
