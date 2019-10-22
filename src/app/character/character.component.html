@@ -57,7 +57,8 @@
         (click)="filmDisplay(film)"
         style="cursor: pointer"
       >
-        <td [ngClass]="i % 2 == 1 ? 'evenRow' : 'oddRow'">{{ film.title }}</td>
+        <td [ngClass]="i % 2 == 1 ? 'evenRow' : 'oddRow'">
+          {{ film.title }}</td>
         <td></td>
         <td [ngClass]="i % 2 == 1 ? 'evenRow' : 'oddRow'">
           {{ film.episode_id }}

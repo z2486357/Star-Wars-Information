@@ -32,4 +32,8 @@
   [starships]="starships"
 ></app-character>
 
-<app-films *ngIf="selected == 'film'" [filmChoose]="filmChoose" (changeDisplay)="changeDisplay($event)"></app-films>
+<app-films
+  *ngIf="selected == 'film'"
+  [filmChoose]="filmChoose"
+  (changeDisplay)="changeDisplay($event)"
+></app-films>
