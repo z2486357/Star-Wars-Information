@@ -5,6 +5,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './character.component.html',
   styleUrls: ['../app.component.css']
 })
+
 export class CharacterComponent implements OnInit {
   @Input() characterChoose: any;
   @Input() homeworld: any;
