@@ -10,7 +10,9 @@
   <p class="description border">eye color: {{ characterChoose.eye_color }}</p>
   <p class="description border">birth year: {{ characterChoose.birth_year }}</p>
   <p class="description border">gender: {{ characterChoose.gender }}</p>
-  <p class="description border" *ngIf="homeworld">homeworld: {{ homeworld.name }}</p>
+  <p class="description border" *ngIf="homeworld">
+    homeworld: {{ homeworld.name }}
+  </p>
   <div *ngIf="species && species.length != 0" class="description border">
     <p style="display: inline">Species of the character:</p>
     <p style="display: inline" *ngFor="let spy of species; let i = index">
@@ -58,7 +60,8 @@
         style="cursor: pointer"
       >
         <td [ngClass]="i % 2 == 1 ? 'evenRow' : 'oddRow'">
-          {{ film.title }}</td>
+          {{ film.title }}
+        </td>
         <td></td>
         <td [ngClass]="i % 2 == 1 ? 'evenRow' : 'oddRow'">
           {{ film.episode_id }}
