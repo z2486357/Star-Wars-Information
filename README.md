@@ -1,4 +1,6 @@
-# Challenge2
+# Star war information
+
+The data used in the application was from https://swapi.co/ . It is an open source.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
