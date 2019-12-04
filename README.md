@@ -1,4 +1,4 @@
-# Star war information
+# Star Wars information
 
 The data used in the application was from https://swapi.co/ . It is an open source.
 
